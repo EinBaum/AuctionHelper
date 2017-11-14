@@ -1,0 +1,89 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Script file="AuctionHelper.lua"/>
+
+	<Frame name="B_AH_Frame" toplevel="true" parent="UIParent" enableMouse="true" hidden="true" frameStrata="HIGH">
+		<Anchors>
+			<Anchor point="TOPLEFT">
+				<Offset>
+					<AbsDimension x="637" y="-120"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Size>
+			<AbsDimension x="1" y="1"/>
+		</Size>
+		<Frames>
+			<EditBox name="B_AH_Input_Name" autoFocus="false" letters="12" inherits="InputBoxTemplate">
+				<Size x="130" y="16" />
+				<Anchors>
+					<Anchor point="TOP" relativePoint="TOP">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString inherits="GameFontHighlight" text="[AuctionHelper]">
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="B_AH_Input_Name" relativePoint="LEFT">
+									<Offset>
+										<AbsDimension x="-8" y="0"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnTextChanged>
+						B_AH_GS[B_AH_Player]["Name"] = this:GetText()
+					</OnTextChanged>
+				</Scripts>
+			</EditBox>
+			<Button name="B_AH_Button_Start" inherits="GameMenuButtonTemplate" text="Start">
+				<Size x="50" y="16" />
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="B_AH_Input_Name">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						B_AH_Start()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="B_AH_Button_Stop" inherits="GameMenuButtonTemplate" text="Stop">
+				<Size x="50" y="16" />
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="B_AH_Button_Start">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						B_AH_Stop()
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+
+		<Scripts>
+			<OnLoad>
+				B_AH_OnLoad()
+			</OnLoad>
+			<OnEvent>
+				B_AH_OnEvent()
+			</OnEvent>
+			<OnUpdate>
+				B_AH_OnUpdate()
+			</OnUpdate>
+		</Scripts>
+	</Frame>
+</Ui>

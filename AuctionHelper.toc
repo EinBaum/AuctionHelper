@@ -1,0 +1,8 @@
+## Interface: 11200
+## Title: Auction|cff60ff00Helper|r
+## Author: EinBaum https://github.com/EinBaum
+## Version: 1.0
+## Notes: Helps transfer items across factions by buying all items posted by a specified player
+## SavedVariables: B_AH_GS
+AuctionHelper.xml
+AuctionHelper.lua
